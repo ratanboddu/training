@@ -132,24 +132,31 @@ public class QuizDaoImpl implements QuizDao {
 package lti.quiz.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import lti.quiz.bean.LoginBean;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import lti.quiz.bean.OptionBean;
 import lti.quiz.bean.QuizBean;
 import lti.quiz.bean.RegisterBean;
-import oracle.jdbc.OracleDriver;
 
 public class QuizDaoImpl implements QuizDao {
 	private Connection getConnection() throws SQLException {
-		DriverManager.registerDriver(new OracleDriver());
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		Connection conn = DriverManager.getConnection(url, "ratan", "ratan");
-		return conn;
+		try {
+			Context initContext = new InitialContext();
+			Context envContext  = (Context)initContext.lookup("java:/comp/env");
+			DataSource ds = (DataSource)envContext.lookup("jdbc/quiz");
+			Connection conn = ds.getConnection();
+			return conn;
+		} catch (NamingException e) {
+			throw new SQLException(e.getMessage());
+		}
 	}
 
 	@Override
@@ -198,29 +205,29 @@ public class QuizDaoImpl implements QuizDao {
 		
 		String sql = "select hero from result where code='" + code + "'";
 	
-		RegisterBean user=null;
+		/*RegisterBean user=null;
 		user= new RegisterBean();
 		user.getEmail();
-		String sql1= "update users set profile=result.hero where email='" + user.getEmail() + "'";
+		String sql1= "update users set profile=result.hero where email='" + user.getEmail() + "'";*/
 		
 		Connection conn = null;
 		
 		try {
 			conn = getConnection();
 			ResultSet rs = conn.createStatement().executeQuery(sql);
-			ResultSet rs1 = conn.createStatement().executeQuery(sql1);
+			//ResultSet rs1 = conn.createStatement().executeQuery(sql1);
 			if(rs.next()) {
 				return rs.getString(1);
 			
 			
 			}
-			if(rs1.next()) {
+			/*if(rs1.next()) {
 				return rs1.getString(2);
 			
 			
 			}
 			
-			
+			*/
 		
 			return null;
 		} catch (SQLException e) {
