@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<style type="text/css">
+.style1 {
+	border-style: solid;
+	border-width: 1px;
+}
+
+.style2 {
+	color: #0000FF;
+}
+
+td.hover {
+	background: yellow;
+}
+
+.style3 {
+	color: #FF0000;
+}
+</style>
+<script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<h3>
+		<font color="purple"> Hover Mouse on cell to see effect </font>
+	</h3>
+	<table style="width: 23%" class="style1" border="1">
+		<tr>
+			<td style="width: 157px" class="style3"><strong>
+					COUNTRY </strong>
+			</td>
+			<td style="width: 217px" class="style3"><strong>
+					CAPITAL </strong>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 157px" class="style2">INDIA</td>
+			<td style="width: 217px" class="style2">NEW DELHI</td>
+		</tr>
+		<tr>
+			<td style="width: 157px" class="style2">AUSTRALIA</td>
+			<td style="width: 217px" class="style2">CANBERRA</td>
+		</tr>
+		<tr>
+			<td style="width: 157px" class="style2">U.S.A.</td>
+			<td style="width: 217px" class="style2">W.D.C.</td>
+		</tr>
+		<tr>
+			<td style="width: 157px" class="style2">JAPAN</td>
+			<td style="width: 217px" class="style2">TOKYO</td>
+		</tr>
+	</table>
+	<script>
+		$("td").hover(function() {
+			$(this).addClass("hover");
+		}, function() {
+			$(this).removeClass("hover");
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+

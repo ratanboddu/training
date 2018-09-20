@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)file:///D:/Projects/jquery7.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="./Document_files/jquery-3.3.1.min.js.download"></script>
+
+    <style>
+    .selected{color:red;}
+    
+    </style>
+    <title>Document</title>
+    <script type="text/javascript">
+    $(document).ready(function(){
+     //   $("p").addClass("selected");
+        $("li").not(".middle").addClass("selected");
+    });
+
+    
+    
+    </script>
+</head>
+<body>
+<ul>
+    <li class="top selected">List Item 1</li>
+    <li class="top selected">List Item 2</li>
+    <li class="middle">List Item 3</li>
+    <li class="middle">List Item 4</li>
+    <li class="bottom selected">List Item 5</li>
+    <li class="bottom selected">List Item 6</li>
+
+</ul>
+       
+
+</body></html>

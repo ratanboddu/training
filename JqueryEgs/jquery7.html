@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+
+    <style>
+    .selected{color:red;}
+    
+    </style>
+    <title>Document</title>
+    <script type="text/javascript">
+    $(document).ready(function(){
+     //   $("p").addClass("selected");
+        $("li").not(".middle").addClass("selected");
+    });
+
+    
+    
+    </script>
+</head>
+<body>
+<ul>
+    <li class="top">List Item 1</li>
+    <li class="top">List Item 2</li>
+    <li class="middle">List Item 3</li>
+    <li class="middle">List Item 4</li>
+    <li class="bottom">List Item 5</li>
+    <li class="bottom">List Item 6</li>
+
+</ul>
+       
+</body>
+</html>
