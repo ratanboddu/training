@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="FruitBasket">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="script/angular.js"></script>
+    <script type="text/javascript" src="Basket.js"></script>
+    <title>Document</title>
+
+</head>
+<body ng-controller="BasketController">
+    <form>
+    Name: <input type="text" >
+    <input type="hidden" ng-model="newfruit.id" />
+    <br>
+    <input type="button" value="Save" ng-click="saveFruit()" />
+    
+    <select>
+            <option  ng-repeat="fruit in fruits" value="{{fruit.name}}"></option>
+        </select>    
+
+        <table>
+                <thead> 
+                <tr>
+                    <th>Name</th>
+                    <!--<th>Email</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                    -->
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="fruit in fruits">
+                    <td>{{ fruit.name }}</td>
+                    <!--<td>{{ contact.email }}</td>
+                    <td>{{ contact.phone }}</td>
+                    -->
+                    <td>
+                        <a  href="#" ng-click="edit(contact.id)">edit</a> | 
+                        <a href="#" ng-click="deletedata(contact.id)">delete</a>
+                    </td>
+                 </tr>
+                </tbody>
+                </table>    
+    </form>
+</body>
+</html>
